@@ -14,12 +14,13 @@ const GALLERY = [
   "globe",
   "net",
   "cells",
-  // "ripple",
+  "ripple",
   "trunk",
   "topology",
   "dots",
   "rings",
   "halo",
+  "test"
 ]
 
 var debounce = function(func, wait, immediate) {
@@ -207,6 +208,14 @@ var loadEffect = function(_effectName, loadOptions) {
     gui.add(options, 'yOffset',-0.5,0.5).step(0.01).onFinishChange(effect.updateUniforms)
     // gui.add(options, 'ringFactor', 0,3).step(0.1).onFinishChange(effect.updateUniforms)
     // gui.add(options, 'rotationFactor', 0,3).step(0.1).onFinishChange(effect.updateUniforms)
+  } else if (effectName === "TEST") {
+    gui.addColor(options, 'skyColor').onFinishChange(effect.updateUniforms)
+    gui.addColor(options, 'cloudColor').onFinishChange(effect.updateUniforms)
+    gui.addColor(options, 'cloudShadowColor').onFinishChange(effect.updateUniforms)
+    gui.addColor(options, 'sunColor').onFinishChange(effect.updateUniforms)
+    gui.addColor(options, 'sunGlareColor').onFinishChange(effect.updateUniforms)
+    gui.addColor(options, 'sunlightColor').onFinishChange(effect.updateUniforms)
+    gui.add(options, 'speed', 0,3).step(0.1).onFinishChange(effect.updateUniforms)
   }
   // Regenerate code!
   gui.__controllers.forEach(c=>{
