@@ -64,9 +64,9 @@ float pattern( in vec2 p ) {
 }
 
 void main() {
-  	vec2 uv = (-iResolution.xy + 2.0*gl_FragCoord.xy)/ iResolution.y;
+  	vec2 uv = (gl_FragCoord.xy)/ iResolution.xy;
     
-    uv *= 2.5; // Scale UV to make it nicer in that big screen !
+    uv *= 4.5; // Scale UV to make it nicer in that big screen !
   	float displacement = pattern(uv);
   	vec4 color = vec4(displacement * 1.2, 0.2, displacement * 5., 1.);
     
